@@ -93,7 +93,7 @@ export function Work() {
               className="group relative"
             >
               {/* glow */}
-              <div className={`absolute -inset-x-10 -inset-y-10 -z-10 bg-gradient-radial ${p.glow} blur-3xl opacity-60`} />
+              <div className={`absolute -inset-x-10 -inset-y-10 -z-10 bg-gradient-to-br ${p.glow} blur-3xl opacity-50`} />
 
               <div className={`grid lg:grid-cols-12 gap-8 lg:gap-10 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
                 {/* Mockups */}
