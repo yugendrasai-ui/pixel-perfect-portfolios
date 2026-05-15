@@ -12,16 +12,16 @@ import { Footer } from "@/components/portfolio/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bruno Dev — Landing Page Designer & Developer" },
+      { title: "Yugendra Sai — Landing Page Designer & Developer" },
       {
         name: "description",
         content:
-          "Independent landing page studio crafting cinematic, high-converting websites for ambitious SaaS, AI and Web3 founders.",
+          "Freelance landing page designer & developer building clean, modern and responsive websites for growing brands.",
       },
-      { property: "og:title", content: "Bruno Dev — Landing Page Designer & Developer" },
+      { property: "og:title", content: "Yugendra Sai — Landing Page Designer & Developer" },
       {
         property: "og:description",
-        content: "Cinematic, high-converting landing pages for ambitious founders.",
+        content: "Freelance landing page designer & developer building clean, modern, responsive websites.",
       },
     ],
   }),
