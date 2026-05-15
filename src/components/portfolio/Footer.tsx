@@ -1,7 +1,11 @@
+/**
+ * FOOTER
+ * Update the email and social links below with your real ones.
+ */
 const links = [
-  { g: "Studio", items: ["Work", "About", "Process", "Services"] },
-  { g: "Connect", items: ["Twitter / X", "Dribbble", "LinkedIn", "Read.cv"] },
-  { g: "Contact", items: ["hello@brunodev.studio", "Lisbon, PT", "Available Q3 2026"] },
+  { g: "Sitemap", items: ["Work", "About", "Services", "Contact"] },
+  { g: "Connect", items: ["Twitter / X", "LinkedIn", "GitHub", "Dribbble"] },
+  { g: "Contact", items: ["hello@yugendrasai.com", "Available for freelance"] },
 ];
 
 export function Footer() {
@@ -10,10 +14,11 @@ export function Footer() {
       <div className="grid md:grid-cols-12 gap-10 pb-16">
         <div className="md:col-span-5">
           <div className="font-display text-3xl md:text-4xl tracking-tight">
-            brunodev<span className="text-muted-foreground">.studio</span>
+            Yugendra<span className="text-muted-foreground"> Sai</span>
           </div>
           <p className="text-muted-foreground text-sm max-w-xs mt-3">
-            Independent landing page studio for ambitious founders.
+            Freelance landing page designer & developer building modern,
+            responsive websites.
           </p>
         </div>
         {links.map((g) => (
@@ -30,8 +35,8 @@ export function Footer() {
         ))}
       </div>
       <div className="border-t border-border pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-muted-foreground">
-        <div>© 2026 brunodev.studio — All rights reserved.</div>
-        <div>Designed & built in Lisbon. ☕</div>
+        <div>© {new Date().getFullYear()} Yugendra Sai — All rights reserved.</div>
+        <div>Designed & built with care.</div>
       </div>
     </footer>
   );

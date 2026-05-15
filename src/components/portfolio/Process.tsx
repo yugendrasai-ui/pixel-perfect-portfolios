@@ -1,12 +1,16 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 
+/**
+ * PROCESS SECTION
+ * Edit the steps below to match how you like to work.
+ */
 const steps = [
-  { n: "01", t: "Discovery", d: "Workshops, audits and positioning to find the sharpest angle for your launch." },
-  { n: "02", t: "Wireframe", d: "Low-fidelity flows that lock narrative and conversion before pixels enter the room." },
-  { n: "03", t: "UI Design", d: "Premium, opinionated visual systems crafted to feel inevitable on every breakpoint." },
-  { n: "04", t: "Development", d: "Hand-built in Framer, Webflow or React with motion that's choreographed, not bolted on." },
-  { n: "05", t: "Launch", d: "QA, analytics, A/B variants — and a 30-day iteration loop after you go live." },
+  { n: "01", t: "Talk", d: "We chat about your idea, your brand and what you want the website to do." },
+  { n: "02", t: "Plan", d: "I sketch a simple layout and structure so we both agree on the direction." },
+  { n: "03", t: "Design", d: "I design a clean, modern landing page tailored to your brand." },
+  { n: "04", t: "Build", d: "I build it as a fast, responsive website using modern web tools." },
+  { n: "05", t: "Launch", d: "We review together, make small tweaks and put it live." },
 ];
 
 export function Process() {
@@ -20,11 +24,10 @@ export function Process() {
         <span className="size-1.5 rounded-full bg-accent" /> Process
       </div>
       <h2 className="mt-4 font-display text-4xl md:text-6xl tracking-[-0.03em] leading-[1]">
-        Five steps. <span className="font-serif italic text-gradient-warm">Zero noise.</span>
+        Simple steps. <span className="font-serif italic text-gradient-warm">Clear results.</span>
       </h2>
 
       <div ref={ref} className="relative mt-20 pl-8 md:pl-16">
-        {/* line */}
         <div className="absolute left-2 md:left-6 top-2 bottom-2 w-px bg-border" />
         <motion.div
           style={{ height: lineH }}
