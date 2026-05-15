@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 
+// Top navigation links — edit labels here if you rename sections.
 const links = ["Work", "About", "Services", "Process", "Contact"];
 
 export function Nav() {
@@ -13,9 +14,9 @@ export function Nav() {
       <div className="glass-strong rounded-full px-5 py-2.5 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 font-display font-semibold tracking-tight">
           <span className="size-7 rounded-full bg-gradient-to-br from-accent to-accent/40 grid place-items-center text-[11px] text-accent-foreground font-bold">
-            B
+            Y
           </span>
-          <span className="text-sm">brunodev<span className="text-muted-foreground">.studio</span></span>
+          <span className="text-sm">Yugendra<span className="text-muted-foreground"> Sai</span></span>
         </a>
         <nav className="hidden md:flex items-center gap-1 text-sm">
           {links.map((l) => (
