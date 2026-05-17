@@ -8,7 +8,11 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { WhatsAppButton } from "../components/portfolio/WhatsAppButton";
+import { Toaster } from "../components/ui/sonner";
+
 import appCss from "../styles.css?url";
+
 
 function NotFoundComponent() {
   return (
@@ -114,6 +118,8 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <WhatsAppButton />
+      <Toaster />
     </QueryClientProvider>
   );
 }

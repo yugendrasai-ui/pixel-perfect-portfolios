@@ -53,61 +53,64 @@ export function Work() {
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               className="group relative"
             >
-              <div className={`absolute -inset-x-10 -inset-y-10 -z-10 bg-gradient-to-br ${glow} blur-3xl opacity-50`} />
+              {/* Large background glow — hidden on mobile to keep it clean */}
+
 
               <div className={`grid lg:grid-cols-12 gap-8 lg:gap-10 items-center ${reverse ? "lg:[&>*:first-child]:order-2" : ""}`}>
-                {/* === Mockups (desktop + floating mobile) === */}
-                <div className="lg:col-span-8 relative">
-                  <div className="relative">
-                    {/* Desktop browser frame */}
+                {/* === Mockups (Clean Bundle: No Cut-offs, No Extra White) === */}
+                <div className="lg:col-span-9 relative">
+                  <div className="relative h-[650px] md:h-[850px] w-full flex items-center justify-center pt-24 pb-24">
+                    
+                    {/* 1. Laptop (Foundation - Hero View) */}
                     <motion.div
-                      whileHover={{ y: -4 }}
-                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="glass-strong rounded-2xl p-3 shadow-card"
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1 }}
+                      className="relative z-10 w-[85%] md:w-[80%] aspect-[16/10] shadow-[0_50px_120px_rgba(0,0,0,0.5)] overflow-hidden rounded-xl md:rounded-2xl border-[1px] border-white/10"
                     >
-                      <div className="flex items-center gap-1.5 px-2 pb-2.5">
-                        <span className="size-2.5 rounded-full bg-red-400/70" />
-                        <span className="size-2.5 rounded-full bg-yellow-400/70" />
-                        <span className="size-2.5 rounded-full bg-emerald-400/70" />
-                        <div className="ml-3 flex-1 h-5 rounded-md bg-white/5 border border-border/60 px-3 flex items-center text-[10px] text-muted-foreground/80 font-mono">
-                          {p.title.toLowerCase().replace(/\s+/g, "")}.com
-                        </div>
-                      </div>
-                      <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-card">
-                        {/* Replace this image at: /public/projects/{p.id}/desktop-preview.png */}
-                        <img
-                          src={p.images.desktop}
-                          alt={`${p.title} desktop preview`}
-                          loading="lazy"
-                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                        />
-                      </div>
+                      <img
+                        src={p.images.desktop}
+                        alt={`${p.title} desktop preview`}
+                        loading="lazy"
+                        className="w-full h-full object-contain scale-[1] object-top"
+                      />
                     </motion.div>
 
-                    {/* Floating mobile preview */}
+                    {/* 2. Phone (Displaying the uploaded mockup as is) */}
                     <motion.div
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.9, delay: 0.2 }}
-                      className={`hidden md:block absolute -bottom-10 ${reverse ? "-left-6" : "-right-6"} w-[26%] max-w-[180px]`}
-                      style={{ animation: "float 7s ease-in-out infinite" }}
+                      initial={{ opacity: 0, x: -50, y: 50 }}
+                      whileInView={{ opacity: 1, x: 0, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.2 }}
+                      className="absolute left-[-2%] bottom-[26%] md:bottom-[30%] z-30 w-[20%] md:w-[18%] shadow-[0_40px_90px_rgba(0,0,0,0.7)] rounded-xl md:rounded-[2.2rem] overflow-hidden"
                     >
-                      <div className="rounded-[2rem] overflow-hidden ring-1 ring-white/10 shadow-card bg-black">
-                        {/* Replace this image at: /public/projects/{p.id}/mobile-preview.png */}
-                        <img
-                          src={p.images.mobile}
-                          alt={`${p.title} mobile preview`}
-                          loading="lazy"
-                          className="w-full h-auto block"
-                        />
-                      </div>
+                      <img
+                        src={p.images.mobile}
+                        alt={`${p.title} mobile design`}
+                        className="w-full h-auto block"
+                      />
+                    </motion.div>
+
+                    {/* 3. Tablet (Displaying the uploaded mockup as is) */}
+                    <motion.div
+                      initial={{ opacity: 0, x: 50, y: -50 }}
+                      whileInView={{ opacity: 1, x: 0, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: 0.4 }}
+                      className="absolute right-[-2%] top-[15%] md:top-[18%] z-20 w-[32%] md:w-[30%] shadow-[0_40px_90px_rgba(0,0,0,0.7)] rounded-xl md:rounded-3xl overflow-hidden"
+                    >
+                      <img
+                        src={p.images.tablet || p.images.desktop}
+                        alt={`${p.title} tablet design`}
+                        className="w-full h-auto block"
+                      />
                     </motion.div>
                   </div>
                 </div>
 
                 {/* === Project info === */}
-                <div className="lg:col-span-4 space-y-6">
+                <div className="lg:col-span-3 space-y-6">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xs text-muted-foreground uppercase tracking-[0.2em]">{p.tag}</span>
                     <span className="text-muted-foreground/40">·</span>
@@ -146,10 +149,10 @@ export function Work() {
                       href={p.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="group/btn inline-flex items-center gap-2 rounded-full bg-foreground text-background pl-4 pr-1.5 py-1.5 text-sm font-medium hover:scale-[1.02] transition-transform"
+                      className="group/btn relative btn-rgb-glow btn-shake-periodic inline-flex items-center gap-2 rounded-full bg-zinc-950 text-white pl-4 pr-1.5 py-1.5 text-sm font-medium transition-all duration-300 hover:scale-[1.02]"
                     >
                       Live preview
-                      <span className="size-7 rounded-full bg-background text-foreground grid place-items-center group-hover/btn:rotate-45 transition-transform">
+                      <span className="size-7 rounded-full bg-white/10 text-white grid place-items-center group-hover/btn:bg-white group-hover/btn:text-black group-hover/btn:rotate-45 transition-all duration-300">
                         <ArrowUpRight className="size-3.5" />
                       </span>
                     </a>

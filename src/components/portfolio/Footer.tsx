@@ -2,10 +2,12 @@
  * FOOTER
  * Update the email and social links below with your real ones.
  */
+import { toast } from "sonner";
+
 const links = [
   { g: "Sitemap", items: ["Work", "About", "Services", "Contact"] },
   { g: "Connect", items: ["Twitter / X", "LinkedIn", "GitHub", "Dribbble"] },
-  { g: "Contact", items: ["hello@yugendrasai.com", "Available for freelance"] },
+  { g: "Contact", items: ["yugendrasai797@gmail.com", "+91 9390819729", "Available for freelance"] },
 ];
 
 export function Footer() {
@@ -25,11 +27,38 @@ export function Footer() {
           <div key={g.g} className="md:col-span-2 lg:col-span-2">
             <div className="text-xs uppercase tracking-widest text-muted-foreground mb-4">{g.g}</div>
             <ul className="space-y-2 text-sm">
-              {g.items.map((l) => (
-                <li key={l}>
-                  <a href="#" className="hover:text-accent transition-colors story-link">{l}</a>
-                </li>
-              ))}
+              {g.items.map((l) => {
+                if (l.includes("@")) {
+                  return (
+                    <li key={l}>
+                      <a
+                        href={`mailto:${l}`}
+                        onClick={(e) => {
+                          navigator.clipboard.writeText(l);
+                          toast.success("Email copied to clipboard! Opening your mail client...", {
+                            description: l,
+                          });
+                        }}
+                        className="hover:text-accent transition-colors story-link"
+                      >
+                        {l}
+                      </a>
+                    </li>
+                  );
+                }
+                
+                let href = "#";
+                if (l.startsWith("+")) {
+                  href = `tel:${l.replace(/\s+/g, "")}`;
+                } else if (g.g === "Sitemap") {
+                  href = `#${l.toLowerCase()}`;
+                }
+                return (
+                  <li key={l}>
+                    <a href={href} className="hover:text-accent transition-colors story-link">{l}</a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}

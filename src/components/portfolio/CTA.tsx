@@ -1,11 +1,12 @@
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { toast } from "sonner";
 
 /**
  * CONTACT / CTA SECTION
  * Replace the email below with your real email address.
  */
-const EMAIL = "hello@yugendrasai.com";
+const EMAIL = "yugendrasai797@gmail.com";
 
 export function CTA() {
   return (
@@ -32,13 +33,30 @@ export function CTA() {
             Have an idea or a brand you want to launch? Send me a quick message —
             I'd love to help you bring it to life.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <a
               href={`mailto:${EMAIL}`}
-              className="group inline-flex items-center gap-2 rounded-full bg-foreground text-background pl-6 pr-2 py-2.5 text-sm font-medium hover:scale-[1.02] transition-transform"
+              onClick={(e) => {
+                navigator.clipboard.writeText(EMAIL);
+                toast.success("Email copied to clipboard! Opening your mail client...", {
+                  description: EMAIL,
+                });
+              }}
+              className="group inline-flex items-center gap-2 rounded-full bg-white text-black pl-6 pr-2 py-2.5 text-sm font-medium hover:scale-[1.02] transition-transform shadow-xl"
             >
-              {EMAIL}
-              <span className="size-9 rounded-full bg-background text-foreground grid place-items-center group-hover:rotate-45 transition-transform">
+              Email Me
+              <span className="size-9 rounded-full bg-black text-white grid place-items-center group-hover:rotate-45 transition-transform">
+                <ArrowUpRight className="size-4" />
+              </span>
+            </a>
+            <a
+              href="https://wa.me/919390819729"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full bg-[#25D366] text-white pl-6 pr-2 py-2.5 text-sm font-medium hover:scale-[1.02] transition-transform shadow-lg shadow-[#25D366]/20"
+            >
+              WhatsApp
+              <span className="size-9 rounded-full bg-white text-[#25D366] grid place-items-center group-hover:rotate-45 transition-transform">
                 <ArrowUpRight className="size-4" />
               </span>
             </a>

@@ -1,11 +1,10 @@
 import { motion } from "motion/react";
-import portrait from "@/assets/portrait.jpg";
 
 /**
  * ABOUT SECTION
  * To change the bio, edit the text below.
- * To change the portrait image, replace src/assets/portrait.jpg
- * (or import a new file).
+ * To change the portrait image, simply replace the image in the public folder:
+ *   public/profile/image.png
  */
 
 const focusItems = [
@@ -36,7 +35,7 @@ export function About() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="lg:col-span-4 relative rounded-3xl overflow-hidden glass-strong aspect-[4/5]"
         >
-          <img src={portrait} alt="Yugendra Sai" className="w-full h-full object-cover" loading="lazy" />
+          <img src="/profile/image.png" alt="Yugendra Sai" className="w-full h-full object-cover" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
             <div>
